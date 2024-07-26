@@ -1,5 +1,5 @@
 # Thinkpad Setup
-``
+```
 ___________.__    .__ __                            .___
 \__    ___/|  |__ |__|  | __ ____ ___________     __| _/
   |    |   |  |  \|  |  |/ //    \\____ \__  \   / __ |
@@ -12,7 +12,7 @@ ___________.__    .__ __                            .___
  \___ \\  ___/|  | |  |  /  |_> >
 /____  >\___  >__| |____/|   __/
      \/     \/           |__|
-``
+```
 
 Install most common software on every new installation on another Thinkpad to safe time
 
