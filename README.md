@@ -36,3 +36,13 @@ Install most common software on every new installation on another Thinkpad to sa
     ```sh
     ./boot.sh
     ```
+
+### Compatible distros
+1. Pop!_OS
+2. Ubuntu
+3. Debian **WIP**
+4. Arch **WIP**
+
+### Installers
+1. TLP
+2. ...
