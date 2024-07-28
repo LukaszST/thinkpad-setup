@@ -60,6 +60,20 @@ function neovim_install() {
     sleep 2
 }
 
+function lazygit_install() {
+    source $PWD/installers/${distro}/lazygit.sh
+    echo "Lazygit installed"
+#    For now I will use sleep to not showing menu after message from installer
+    sleep 2
+}
+
+function fastfetch_install() {
+    source $PWD/installers/${distro}/fastfetch.sh
+    echo "Fastfetch installed"
+#    For now I will use sleep to not showing menu after message from installer
+    sleep 2
+}
+
 function complete_install() {
     tlp_install
     echo -ne "
@@ -78,6 +92,8 @@ function complete_install() {
 
     lazy_docker_install
     neovim_install
+    lazygit_install
+    fastfetch_install
 
 
 }
@@ -106,6 +122,8 @@ $(ColorGreen '2)') Install Docker using docker-ce
 $(ColorGreen '3)') Install Docker using docker.io
 $(ColorGreen '4)') Install Lazdy-docker using docker.io
 $(ColorGreen '5)') Install neovim with lazyvim setup
+$(ColorGreen '6)') Install lazygit
+$(ColorGreen '7)') Install fastfetch
 $(ColorGreen '69)') Install everything
 $(ColorGreen '0)') Exit
 $(ColorBlue 'Choose an option:') "
@@ -116,6 +134,8 @@ $(ColorBlue 'Choose an option:') "
             3) docker_omakub_install ; menu ;;
             4) lazy_docker_install ; menu ;;
             5) neovim_install ; menu ;;
+            6) lazygit_install ; menu ;;
+            7) fastfetch_install ; menu ;;
 	        69) complete_install ; menu ;;
 		0) exit 0 ;;
 		*) echo -e $red"Wrong option."$clear; WrongCommand;;
