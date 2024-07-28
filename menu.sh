@@ -62,6 +62,24 @@ function neovim_install() {
 
 function complete_install() {
     tlp_install
+    echo -ne "
+    Select option to install
+    $(ColorGreen '2)') Install Docker using docker-ce
+    $(ColorGreen '3)') Install Docker using docker.io
+    $(ColorGreen '0)') Exit
+    $(ColorBlue 'Choose an option:') "
+    read a
+        case $a in
+            2) docker_docs_install ;;
+            3) docker_omakub_install ;;
+		0) exit 0 ;;
+		*) echo -e $red"Wrong option."$clear; WrongCommand;;
+        esac
+
+    lazy_docker_install
+    neovim_install
+
+
 }
 ##
 # Color  Variables
