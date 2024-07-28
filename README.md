@@ -45,4 +45,7 @@ Install most common software on every new installation on another Thinkpad to sa
 
 ### Installers
 1. TLP
-2. ...
+2. Docker.io
+3. Docker-ce
+4. Lazy-docker
+5. ...
