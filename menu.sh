@@ -88,6 +88,13 @@ function github_cli_install() {
     sleep 2
 }
 
+function zsh_install() {
+    source $PWD/installers/${distro}/zsh.sh
+    echo "Github Cli installed"
+#    For now I will use sleep to not showing menu after message from installer
+    sleep 2
+}
+
 function complete_install() {
     tlp_install
     echo -ne "
@@ -140,6 +147,7 @@ $(ColorGreen '6)') Install lazygit
 $(ColorGreen '7)') Install fastfetch
 $(ColorGreen '8)') Install zellij
 $(ColorGreen '9)') Install Github cli
+$(ColorGreen '10)') Install Zsh with OhMyZsh
 $(ColorGreen '69)') Install everything
 $(ColorGreen '0)') Exit
 $(ColorBlue 'Choose an option:') "
@@ -154,6 +162,7 @@ $(ColorBlue 'Choose an option:') "
             7) fastfetch_install ; menu ;;
             8) zellij_install ; menu ;;
             9) github_cli_install ; menu ;;
+            10) zsh_install ; menu ;;
 	        69) complete_install ; menu ;;
 		0) exit 0 ;;
 		*) echo -e $red"Wrong option."$clear; WrongCommand;;
