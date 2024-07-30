@@ -74,6 +74,20 @@ function fastfetch_install() {
     sleep 2
 }
 
+function zellij_install() {
+    source $PWD/installers/${distro}/zellij.sh
+    echo "Zellij installed"
+#    For now I will use sleep to not showing menu after message from installer
+    sleep 2
+}
+
+function github_cli_install() {
+    source $PWD/installers/${distro}/github-cli.sh
+    echo "Github Cli installed"
+#    For now I will use sleep to not showing menu after message from installer
+    sleep 2
+}
+
 function complete_install() {
     tlp_install
     echo -ne "
@@ -120,10 +134,12 @@ Select option to install
 $(ColorGreen '1)') Install tlp and set charge limit
 $(ColorGreen '2)') Install Docker using docker-ce
 $(ColorGreen '3)') Install Docker using docker.io
-$(ColorGreen '4)') Install Lazdy-docker using docker.io
+$(ColorGreen '4)') Install Lazy-docker using docker.io
 $(ColorGreen '5)') Install neovim with lazyvim setup
 $(ColorGreen '6)') Install lazygit
 $(ColorGreen '7)') Install fastfetch
+$(ColorGreen '8)') Install zellij
+$(ColorGreen '9)') Install Github cli
 $(ColorGreen '69)') Install everything
 $(ColorGreen '0)') Exit
 $(ColorBlue 'Choose an option:') "
@@ -136,6 +152,8 @@ $(ColorBlue 'Choose an option:') "
             5) neovim_install ; menu ;;
             6) lazygit_install ; menu ;;
             7) fastfetch_install ; menu ;;
+            8) zellij_install ; menu ;;
+            9) github_cli_install ; menu ;;
 	        69) complete_install ; menu ;;
 		0) exit 0 ;;
 		*) echo -e $red"Wrong option."$clear; WrongCommand;;
