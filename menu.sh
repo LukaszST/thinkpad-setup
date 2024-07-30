@@ -95,6 +95,13 @@ function zsh_install() {
     sleep 2
 }
 
+function font_install() {
+    source $PWD/installers/${distro}/fonts.sh
+    echo "Fonts installed"
+#    For now I will use sleep to not showing menu after message from installer
+    sleep 2
+}
+
 function complete_install() {
     tlp_install
     echo -ne "
@@ -115,8 +122,10 @@ function complete_install() {
     neovim_install
     lazygit_install
     fastfetch_install
-
-
+    zellij_install
+    github_cli_install
+    zsh_install
+    font_install
 }
 ##
 # Color  Variables
@@ -148,6 +157,7 @@ $(ColorGreen '7)') Install fastfetch
 $(ColorGreen '8)') Install zellij
 $(ColorGreen '9)') Install Github cli
 $(ColorGreen '10)') Install Zsh with OhMyZsh
+$(ColorGreen '11)') Install FiraMono font
 $(ColorGreen '69)') Install everything
 $(ColorGreen '0)') Exit
 $(ColorBlue 'Choose an option:') "
@@ -163,6 +173,7 @@ $(ColorBlue 'Choose an option:') "
             8) zellij_install ; menu ;;
             9) github_cli_install ; menu ;;
             10) zsh_install ; menu ;;
+            11) font_install ; menu ;;
 	        69) complete_install ; menu ;;
 		0) exit 0 ;;
 		*) echo -e $red"Wrong option."$clear; WrongCommand;;
